@@ -1,0 +1,10 @@
+a:after {
+    content: " (" attr(href) ")";
+  }
+  
+  @media print {
+    a:after {
+      content: " (" attr(href) ")";
+    }
+  }
+  

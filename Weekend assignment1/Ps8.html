@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Form</title>
+    <style>
+        /* Add some basic CSS for styling */
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Signup Form</h1>
+    <form action="/process_signup" method="post">
+        <label for="first_name">First Name:</label>
+        <input type="text" name="first_name" id="first_name" autofocus required placeholder="John">
+        
+        <label for="last_name">Last Name:</label>
+        <input type="text" name="last_name" id="last_name" required placeholder="Smith">
+        
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required placeholder="user@example.com">
+        
+        <input type="submit" value="Sign Up">
+    </form>
+</body>
+</html>

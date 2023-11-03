@@ -1,0 +1,19 @@
+/* Style for invalid input fields */
+input[required]:invalid, input[pattern]:invalid {
+    border-color: #A5340B; /* Red border for invalid fields */
+}
+
+/* Style for valid input fields */
+input[required]:valid, input[pattern]:valid {
+    border-color: #0B9900; /* Green border for valid fields */
+}
+
+/* Style for error messages */
+input[required]:invalid + .error-message {
+    color: #A5340B; /* Red text color for error messages */
+}
+
+/* Style for valid messages */
+input[required]:valid + .valid-message {
+    color: #0B9900; 
+}
