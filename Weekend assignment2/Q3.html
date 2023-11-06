@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <style>
+        input[type="text"] {
+            width: 200px;
+            margin: 5px;
+        }
+        button {
+            width: 50px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="num1" placeholder="Enter the first number">
+    <input type="text" id="num2" placeholder="Enter the second number">
+    <button id="add">+</button>
+    <button id="subtract">-</button>
+    <button id="multiply">*</button>
+    <button id="divide">/</button>
+    <input type="text" id="result" placeholder="Result" disabled>
+    
+    <script>
+        const num1 = document.getElementById('num1');
+        const num2 = document.getElementById('num2');
+        const addBtn = document.getElementById('add');
+        const subtractBtn = document.getElementById('subtract');
+        const multiplyBtn = document.getElementById('multiply');
+        const divideBtn = document.getElementById('divide');
+        const result = document.getElementById('result');
+
+        addBtn.addEventListener('click', () => {
+            calculate('add');
+        });
+
+        subtractBtn.addEventListener('click', () => {
+            calculate('subtract');
+        });
+
+        multiplyBtn.addEventListener('click', () => {
+            calculate('multiply');
+        });
+
+        divideBtn.addEventListener('click', () => {
+            calculate('divide');
+        });
+
+        function calculate(operation) {
+            const value1 = parseFloat(num1.value);
+            const value2 = parseFloat(num2.value);
+
+            if (isNaN(value1) || isNaN(value2)) {
+                result.value = 'Invalid input';
+            } else {
+                switch (operation) {
+                    case 'add':
+                        result.value = value1 + value2;
+                        break;
+                    case 'subtract':
+                        result.value = value1 - value2;
+                        break;
+                    case 'multiply':
+                        result.value = value1 * value2;
+                        break;
+                    case 'divide':
+                        if (value2 === 0) {
+                            result.value = 'Division by zero';
+                        } else {
+                            result.value = value1 / value2;
+                        }
+                        break;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assignment: Color, Font, and Calculator</title>
+    <style>
+        #colorDiv {
+            width: 200px;
+            height: 200px;
+            background-color: lightgray;
+            margin: 10px;
+        }
+
+        p {
+            font-size: 16px;
+        }
+
+        input[type="text"] {
+            width: 200px;
+            margin: 5px;
+        }
+
+        button {
+            width: 50px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Color Changer</h1>
+    <input type="text" id="colorInput" placeholder="Enter a color">
+    <div id="colorDiv">This is a colored div.</div>
+
+    <h1>Font Size Adjuster</h1>
+    <p id="text">This is a paragraph with variable font size.</p>
+    <button id="increaseFont">Increase Font</button>
+    <button id="decreaseFont">Decrease Font</button>
+
+    <h1>Calculator</h1>
+    <input type="text" id="calcInput1" placeholder="Enter a number">
+    <input type="text" id="calcInput2" placeholder="Enter another number">
+    <button id="add">+</button>
+    <button id="subtract">-</button>
+    <button id="multiply">*</button>
+    <button id="divide">/</button>
+    <input type="text" id="calcResult" placeholder="Result" disabled>
+
+    <script>
+        // Color Changer
+        const colorInput = document.getElementById('colorInput');
+        const colorDiv = document.getElementById('colorDiv');
+
+        colorInput.addEventListener('input', () => {
+            const color = colorInput.value;
+            colorDiv.style.backgroundColor = color;
+        });
+
+        // Font Size Adjuster
+        const text = document.getElementById('text');
+        const increaseFontBtn = document.getElementById('increaseFont');
+        const decreaseFontBtn = document.getElementById('decreaseFont');
+
+        increaseFontBtn.addEventListener('click', () => {
+            adjustFontSize(2);
+        });
+
+        decreaseFontBtn.addEventListener('click', () => {
+            adjustFontSize(-2);
+        });
+
+        function adjustFontSize(changeAmount) {
+            const currentSize = parseFloat(getComputedStyle(text).fontSize);
+            text.style.fontSize = (currentSize + changeAmount) + 'px';
+        }
+
+        // Calculator
+        const calcInput1 = document.getElementById('calcInput1');
+        const calcInput2 = document.getElementById('calcInput2');
+        const addBtn = document.getElementById('add');
+        const subtractBtn = document.getElementById('subtract');
+        const multiplyBtn = document.getElementById('multiply');
+        const divideBtn = document.getElementById('divide');
+        const calcResult = document.getElementById('calcResult');
+
+        addBtn.addEventListener('click', () => {
+            calculate('add');
+        });
+
+        subtractBtn.addEventListener('click', () => {
+            calculate('subtract');
+        });
+
+        multiplyBtn.addEventListener('click', () => {
+            calculate('multiply');
+        });
+
+        divideBtn.addEventListener('click', () => {
+            calculate('divide');
+        });
+
+        function calculate(operation) {
+            const value1 = parseFloat(calcInput1.value);
+            const value2 = parseFloat(calcInput2.value);
+
+            if (isNaN(value1) || isNaN(value2)) {
+                calcResult.value = 'Invalid input';
+            } else {
+                switch (operation) {
+                    case 'add':
+                        calcResult.value = value1 + value2;
+                        break;
+                    case 'subtract':
+                        calcResult.value = value1 - value2;
+                        break;
+                    case 'multiply':
+                        calcResult.value = value1 * value2;
+                        break;
+                    case 'divide':
+                        if (value2 === 0) {
+                            calcResult.value = 'Division by zero';
+                        } else {
+                            calcResult.value = value1 / value2;
+                        }
+                        break;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Change Div Color</title>
+</head>
+<body>
+    <label for="colorInput">Enter a color: </label>
+    <input type="text" id="colorInput" placeholder="e.g., red, #00ff00, etc.">
+    
+    <div id="colorDiv">This is a div.</div>
+    
+    <script>
+        // Function to change the color of the div
+        function changeDivColor() {
+            const colorInput = document.getElementById('colorInput');
+            const colorDiv = document.getElementById('colorDiv');
+            
+            const color = colorInput.value;
+            
+            // Set the background color of the div
+            colorDiv.style.backgroundColor = color;
+        }
+        
+        // Attach the changeDivColor function to the input's change event
+        const colorInput = document.getElementById('colorInput');
+        colorInput.addEventListener('input', changeDivColor);
+    </script>
+</body>
+</html>
