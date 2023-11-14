@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #registration-form {
+            text-align: center;
+        }
+
+        #registration-btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        .error-message {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="registration-form">
+        <h2>Registration</h2>
+        <form id="form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+            <span id="name-error" class="error-message"></span><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            <span id="email-error" class="error-message"></span><br>
+
+            <label for="username">Username:</label>
+            <input type="text" id="username" required>
+            <span id="username-error" class="error-message"></span><br>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+            <span id="password-error" class="error-message"></span><br>
+
+            <label for="confirm-password">Confirm Password:</label>
+            <input type="password" id="confirm-password" required>
+            <span id="confirm-password-error" class="error-message"></span><br>
+
+            <button type="button" onclick="register()">Register</button>
+        </form>
+        <p id="registration-message"></p>
+    </div>
+
+    <script>
+        function register() {
+            // Reset error messages
+            resetErrorMessages();
+
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            const registrationMessage = document.getElementById('registration-message');
+            const registrationBtn = document.getElementById('registration-btn');
+
+            // Validate inputs
+            if (!name || !email || !username || !password || !confirmPassword) {
+                registrationMessage.innerHTML = "All fields are required.";
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                document.getElementById('confirm-password-error').innerHTML = "Passwords do not match.";
+                return;
+            }
+
+            // Additional validations can be added as needed
+
+            // If all validations pass, display success message
+            registrationMessage.innerHTML = "Registration successful!";
+            registrationMessage.style.color = "green";
+            registrationBtn.disabled = true;
+        }
+
+        function resetErrorMessages() {
+            const errorMessages = document.getElementsByClassName('error-message');
+            for (let i = 0; i < errorMessages.length; i++) {
+                errorMessages[i].innerHTML = '';
+            }
+        }
+    </script>
+</body>
+</html>

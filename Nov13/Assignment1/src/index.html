@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #login-form {
+            text-align: center;
+        }
+
+        #login-btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div id="login-form">
+        <h2>Login</h2>
+        <form id="form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" required><br>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" required><br>
+
+            <button type="button" onclick="login()">Login</button>
+        </form>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        // Dummy credentials for demonstration purposes
+        const validUsername = "user";
+        const validPassword = "password";
+
+        let attempts = 3;
+
+        function login() {
+            const usernameInput = document.getElementById('username').value;
+            const passwordInput = document.getElementById('password').value;
+            const messageElement = document.getElementById('message');
+            const loginBtn = document.getElementById('login-btn');
+
+            if (usernameInput === validUsername && passwordInput === validPassword) {
+                messageElement.innerHTML = "Login successful!";
+                messageElement.style.color = "green";
+                loginBtn.disabled = true;
+            } else {
+                attempts--;
+                messageElement.innerHTML = `Invalid credentials. ${attempts} attempts remaining.`;
+                messageElement.style.color = "red";
+                if (attempts === 0) {
+                    loginBtn.disabled = true;
+                    messageElement.innerHTML = "Login disabled. Please contact support.";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
