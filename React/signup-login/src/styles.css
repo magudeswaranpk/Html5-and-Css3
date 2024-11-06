@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #333;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+}
+
+.signup-container, .login-container, .forgot-password-container, .home-container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+.signup-container h2, .login-container h2, .forgot-password-container h2, .home-container h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.signup-container form, .login-container form, .forgot-password-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signup-container input, .login-container input, .forgot-password-container input {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #fdfcfc;
+    border-radius: 30px;
+    background: #fbfdfd;
+    transition: background 0.3s;
+}
+
+.signup-container input:focus, .login-container input:focus, .forgot-password-container input:focus {
+    background: #f9faf8;
+    border-color: #0568c1;
+}
+
+.signup-container .error, .login-container .error, .forgot-password-container .error {
+    color: red;
+    font-size: 0.875em;
+    display: none;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+.signup-container button, .login-container button, .forgot-password-container button, .home-container button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 30px;
+    background: #7fdbdb;
+    color: #1b0bf8;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.signup-container button:hover, .login-container button:hover, .forgot-password-container button:hover, .home-container button:hover {
+    background: #68c7c7;
+}
+
+.signup-container p, .login-container p, .forgot-password-container p {
+    margin-top: 20px;
+}
+
+.signup-container p a, .login-container p a, .forgot-password-container p a {
+    color: #1b0bf8;
+    text-decoration: none;
+}
+
+.signup-container p a:hover, .login-container p a:hover, .forgot-password-container p a:hover {
+    color: red;
+}
+
+@media (max-width: 736px) {
+    .signup-container, .login-container, .forgot-password-container, .home-container {
+        padding: 30px;
+    }
+
+    .signup-container h2, .login-container h2, .forgot-password-container h2, .home-container h2 {
+        font-size: 1.2rem;
+    }
+}
+
