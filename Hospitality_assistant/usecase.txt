@@ -1,0 +1,14 @@
+ 
+1. Hospitality
+
+- Reservation Assistance:
+ An AI assistant helps customers make and manage their reservations, suggests personalized recommendations based on past preferences,
+  and provides information about amenities and services.
+
+- Guest Feedback Analysis: 
+The AI analyzes feedback from guests across various platforms, categorizes sentiments,
+ and identifies trends to help management improve services.
+
+- Concierge Service: 
+The AI acts as a virtual concierge, assisting guests with recommendations for dining, local attractions, and activities,
+ based on their preferences and interests.

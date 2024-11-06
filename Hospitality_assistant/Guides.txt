@@ -1,0 +1,25 @@
+step 1:
+create the folder and make the virtual environment
+-> python -m venv C:\Users\magudeswaran.pk\Documents\Usecases\Hospitality_assistant\venv 
+
+step 2:
+create the Hospitality_assistant.py and done the coding 
+
+step 3:
+install required libraries
+pip install spacy transformers
+python -m spacy download en_core_web_sm
+.\venv\Scripts\activate
+pip install streamlit
+pip install tensorflow
+pip install pytorch
+pip install pylance
+pip install pandas
+pip install transformers
+pip install streamlit transformers spacy scikit-learn
+pip install tf-keras
+
+step 4:
+Run
+streamlit run hospitality_assistant.py
+
